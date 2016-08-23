@@ -1,0 +1,40 @@
+{
+  "name": "mdfive",
+  "version": "1.0.0",
+  "description": "Another md5 module",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/gulp build",
+    "clean": "./node_modules/.bin/gulp clean",
+    "watch": "./node_modules/.bin/gulp watch",
+    "prepublish": "./node_modules/.bin/gulp prepublish",
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irvingswiftj/mdfive.git"
+  },
+  "keywords": [
+    "md5"
+  ],
+  "author": "James Irving-Swift <james@irving-swift.com> (http://www.irving-swift.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/irvingswiftj/mdfive/issues"
+  },
+  "homepage": "https://github.com/irvingswiftj/mdfive#readme",
+  "dependencies": {
+    "async": "^2.0.1",
+    "bluebird": "^3.4.1",
+    "command-exists": "^1.0.2",
+    "lodash": "^4.15.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}
