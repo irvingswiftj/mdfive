@@ -1,7 +1,7 @@
 var gulp          = require('gulp'),
     sourcemaps    = require('gulp-sourcemaps'),
     babel         = require('gulp-babel'),
-    del           = require('del'),
+    clean           = require('gulp-clean'),
     plumber       = require('gulp-plumber');
 
 var paths = {
@@ -9,7 +9,8 @@ var paths = {
 };
 
 gulp.task('clean', () => {
-    return del(['build']);
+    return gulp.src('build/**/*.js', {force: true})
+        .pipe(clean());
 });
 
 gulp.task('build', () => {
