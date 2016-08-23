@@ -19,6 +19,18 @@ $ node index.js
 4ff02042d751f1acfd7c1c18d856ceb6
 ```
 
+#Usage
+
+```
+var MDFive = require('mdfive').MDFive;
+
+var md5 = new MDFive();
+
+md5.fileChecksum('path/to/myfile.txt')
+	.then(cksum => {
+		console.log(cksum);
+	});
+```
 
 ##Benchmark
 N.B. Tested on OSX using md5 installed via homebrew.
