@@ -1,4 +1,7 @@
 # mdfive
+
+[![Build Status](https://travis-ci.org/irvingswiftj/mdfive.svg?branch=master)](https://travis-ci.org/irvingswiftj/mdfive)
+
 node.js md5 module
 
 ##Features
