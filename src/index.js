@@ -8,12 +8,11 @@
 
 import Promise from 'bluebird';
 import _ from 'lodash';
-import async from 'async';
+import filter from 'async/filter';
+import eachOf from 'async/eachOf';
 import child_process from 'child_process';
 import checkCommand from 'command-exists';
 import * as Md5Adapters from './adapters/index';
-
-console.log(Md5Adapters);
 
 export class MDFive {
 
@@ -28,62 +27,54 @@ export class MDFive {
         });
     }
 
-    getMd5Command() {
-        return new BPromise( (resolve, reject) => {
-            async.filter(Object.keys(md5Commands), (cmd, cb) => {
-                return commandExists(cmd)
-                    .then(result => {
-                        return cb(null, result);
+    getMd5Adapter () {
+        var self = this,
+            result = null;
+
+        return new Promise ( (resolve, reject) => {
+
+            eachOf(Md5Adapters, (adapter, key, cb) => {
+
+                self.commandExists(adapter.CMD)
+                    .then(exists => {
+                        if (exists === true && result === null) {
+                            result = adapter;
+                        }
+
+                        cb();
                     })
-                    .catch(err => {
-                        return cb(err);
-                    });
-            }, (err, result) => {
+                    .catch(cb);
+
+                
+            }, (err) => {
                 if (err) {
                     return reject(err);
                 }
 
-                return resolve(result[0] || null);
+                return resolve(new result());
             });
+
         });
-        
     }
 
-    getCheckSumForFile(filePath) {
+    fileChecksum(filePath) {
+        var self = this;
 
-        return new Promise( (resolve, reject) =>{
-            getMd5Command()
-                .then(result => {
-                    var cmd = md5Commands[result].formatCmd();
+        return new Promise( (resolve, reject) => {
+            self.getMd5Adapter()
+                .then(adapter => {
+                    var cmd = adapter.formatCmd(filePath);
                     
                     child_process.exec(cmd, (err, stdout ,stderr) => {
                         if (err) {
                             return reject(err);
                         }
                         
-                        return resolve(md5Commands[result].formatResult(stdout));
+                        return resolve(adapter.formatResult(stdout));
                     });
                 });
         });
         
     }
 
-    getCheckSumForString(string) {
-
-        return new Promise( (resolve, reject) =>{
-            getMd5Command()
-                .then(result => {
-                    var cmd = md5Commands[result].formatCmd();
-                    
-                    child_process.exec(cmd, (err, stdout ,stderr) => {
-                        if (err) {
-                            return reject(err);
-                        }
-                        
-                        return resolve(md5Commands[result].formatResult(stdout));
-                    });
-                });
-        });
-
-    }
 }

@@ -11,7 +11,7 @@ export default class Md5 extends AbstractAdapter {
 	}
 
 	formatCmd (filePath) {
-        return this.CMD + ' -q ' + testFilePath;
+        return CMD + ' -q ' + filePath;
     }
     	
 }

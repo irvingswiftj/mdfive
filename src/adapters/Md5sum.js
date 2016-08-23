@@ -6,16 +6,12 @@ const CMD = 'md5sum';
 
 export default class Md5sum extends AbstractAdapter {
 
-	constructor () {
-		super();
-	}
-
 	static get CMD () {
 		return CMD;
 	}
 
 	formatCmd (filePath) {
-        return this.CMD + ' ' + testFilePath;
+        return CMD + ' ' + testFilePath;
     }
 
     formatResult (string) {
