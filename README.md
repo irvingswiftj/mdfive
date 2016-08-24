@@ -37,5 +37,11 @@ N.B. Tested on OSX using md5 installed via homebrew.
 
 Test on 40MB file
 
-|Native node|0.272secs|
-|MdFive|0.281secs|
+<table>
+<tr>
+<td>Native node</td><td>0.272secs</td>
+</tr>
+<tr>
+<td>MdFive</td><td>0.281secs</td>
+</tr>
+</table>
