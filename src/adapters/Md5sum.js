@@ -11,7 +11,7 @@ export default class Md5sum extends AbstractAdapter {
 	}
 
 	formatCmd (filePath) {
-        return CMD + ' ' + testFilePath;
+        return CMD + ' ' + filePath;
     }
 
     formatResult (string) {
