@@ -1,22 +1,22 @@
-'use strict';
-
 import AbstractAdapter from './AbstractAdapter';
 
-const CMD = 'md5sum';
-
 export default class Md5sum extends AbstractAdapter {
+  constructor() {
+    super();
 
-	static get CMD () {
-		return CMD;
-	}
+    this.cmd = 'md5sum';
+  }
 
-	formatCmd (filePath) {
-        return CMD + ' ' + filePath;
-    }
+  getCmd() {
+    return this.cmd;
+  }
 
-    formatResult (string) {
-        //example: aaec4956a2be31743c91a0d80ce3ef7b  myFile.txt
-        return string.split(' ')[0];
-    }
-	
+  formatCmd(filePath) {
+    return `${this.getCmd()} ${filePath}`;
+  }
+
+  static formatResult(string) {
+    // example: aaec4956a2be31743c91a0d80ce3ef7b  myFile.txt
+    return string.split(' ')[0];
+  }
 }

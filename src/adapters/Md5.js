@@ -1,17 +1,17 @@
-'use strict';
-
 import AbstractAdapter from './AbstractAdapter';
 
-const CMD = 'md5';
-
 export default class Md5 extends AbstractAdapter {
+  constructor() {
+    super();
 
-	static get CMD () {
-		return CMD;
-	}
+    this.cmd = 'md5';
+  }
 
-	formatCmd (filePath) {
-        return CMD + ' -q ' + filePath;
-    }
-    	
+  getCmd() {
+    return this.cmd;
+  }
+
+  formatCmd(filePath) {
+    return `${this.getCmd()} -q ${filePath}`;
+  }
 }
