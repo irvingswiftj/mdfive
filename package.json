@@ -1,6 +1,6 @@
 {
   "name": "mdfive",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Another md5 module",
   "main": "build/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irvingswiftj/mdfive.git"
+    "url": "git+https://github.com/volumenetwork/mdfive.git"
   },
   "keywords": [
     "md5"
@@ -20,9 +20,9 @@
   "author": "James Irving-Swift <james@irving-swift.com> (http://www.irving-swift.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/irvingswiftj/mdfive/issues"
+    "url": "https://github.com/volumenetwork/mdfive/issues"
   },
-  "homepage": "https://github.com/irvingswiftj/mdfive#readme",
+  "homepage": "https://github.com/volumenetwork/mdfive#readme",
   "dependencies": {
     "async": "^2.0.1",
     "babel-preset-env": "^1.7.0",
