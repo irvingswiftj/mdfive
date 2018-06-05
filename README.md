@@ -1,10 +1,10 @@
 # mdfive
 
-[![Build Status](https://travis-ci.org/irvingswiftj/mdfive.svg?branch=master)](https://travis-ci.org/irvingswiftj/mdfive)
+[![Build Status](https://travis-ci.org/volumenetwork/mdfive.svg?branch=master)](https://travis-ci.org/volumenetwork/mdfive)
 
 node.js md5 module
 
-##Features
+## Features
 
 File over 2Gb
 
@@ -19,7 +19,7 @@ $ node index.js
 4ff02042d751f1acfd7c1c18d856ceb6
 ```
 
-#Usage
+# Usage
 
 ```
 var MDFive = require('mdfive').MDFive;
@@ -32,7 +32,7 @@ md5.fileChecksum('path/to/myfile.txt')
 	});
 ```
 
-##Benchmark
+## Benchmark
 N.B. Tested on OSX using md5 installed via homebrew.
 
 Test on 40MB file
